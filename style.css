@@ -131,12 +131,16 @@ main {
 /*================= LOGO =================*/
 
 .logo {
-  font: 700 1.31rem 'Poppins', sans-serif;
+  font: 700 1.3125rem 'Poppins', sans-serif;
   color: var(--title-color);
 }
 
 .logo span {
   color: var(--base-color);
+}
+
+.logo-alt span {
+  color: var(--body-color);
 }
 
 /*================= NAVAGATION =================*/
@@ -435,4 +439,67 @@ cards.grid {
 
 #contact ul li i {
   color: var(--base-color);
+}
+
+/* =========== FOOTER ========== */
+
+footer {
+  background: var(--base-color);
+}
+
+footer .logo {
+  /* como o .logo é um elemento <a> , seu display por padrão é do tipo inline ,e dessa forma não é possivel colocar o margem-botton , trocamos entao para display: inline-block. */
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+footer .social a {
+  /* como temos um elemento <a> , seu display por padrão é do tipo inline ,e dessa forma não é possivel colocar as transitions, trocamos entao para display: inline-block. */
+  display: inline-block;
+  margin-right: 2rem;
+  transition: 0.2s;
+}
+
+footer .social a:hover {
+  transform: translateY(-15px);
+}
+
+/* =========== BACK TO TOP ========== */
+
+.back-to-top {
+  background: var(--base-color);
+  color: var(--text-color-light);
+  opacity: 0.9;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.5rem;
+  clip-path: circle();
+  font-size: 1.5rem;
+  line-height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(100%);
+}
+
+.back-to-top-alt {
+  background: var(--text-color-light);
+  color: var(--base-color);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 0.9;
+  transform: translateY(0);
 }
