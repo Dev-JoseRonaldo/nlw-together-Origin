@@ -24,7 +24,7 @@ img {
 :root {
   --header-height: 4.5rem;
   /* colors */
-  --hue: 159;
+  --hue: 140;
   /* HSL color mode */
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
@@ -33,6 +33,11 @@ img {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
+  /*fonts*/
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
 }
 
 /*================= BASE =================*/
@@ -42,14 +47,14 @@ html {
 }
 
 body {
-  font: 400 1rem 'DM Sans', sans-serif;
+  font: 400 1rem var(--body-font);
   color: var(--text-color);
   background: var(--body-color);
   -webkit-font-smoothing: antialiased;
 }
 
 .tittle {
-  font: 700 1.875rem 'Poppins', sans-serif;
+  font: 700 var(--title-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto;
 }
@@ -62,7 +67,7 @@ body {
   align-items: center;
   padding: 0 2rem;
   border-radius: 0.25rem;
-  font: 500 1rem 'DM Sans', sans-serif;
+  font: 500 1rem var(--body-font);
   transition: background 0.3s;
 }
 
@@ -93,11 +98,15 @@ body {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: calc(5rem + var(--header-height)) 0;
 }
 
 .section .tittle {
   margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
 }
 
 .section header {
@@ -124,14 +133,10 @@ header.scroll {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
 }
 
-main {
-  margin-top: calc(var(--header-height) + 2rem);
-}
-
 /*================= LOGO =================*/
 
 .logo {
-  font: 700 1.3125rem 'Poppins', sans-serif;
+  font: 700 1.3125rem var(--title-font);
   color: var(--title-color);
 }
 
@@ -162,7 +167,7 @@ nav ul li a {
   position: relative;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li a.active {
   color: var(--base-color);
 }
 
@@ -177,7 +182,7 @@ nav ul li a::after {
   transition: width 0.2s;
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after, nav ul li a.active::after {
   width: 100%;
 }
 
@@ -447,6 +452,10 @@ footer {
   background: var(--base-color);
 }
 
+footer.section {
+  padding: 4rem 0;
+}
+
 footer .logo {
   /* como o .logo é um elemento <a> , seu display por padrão é do tipo inline ,e dessa forma não é possivel colocar o margem-botton , trocamos entao para display: inline-block. */
   display: inline-block;
@@ -503,3 +512,125 @@ footer .social a:hover {
   opacity: 0.9;
   transform: translateY(0);
 }
+
+/* =========== MEDIAS QUERIES ========== */
+
+/* Extra large devices: 1200 + */
+
+/* BASE */
+
+@media (min-width: 1200px) {
+  main {
+    margin-top: var(--header-height);
+  }
+  .container {
+    max-width: 1172px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section {
+    padding: 10rem 0;
+  }
+  .section header, #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .button {
+    height: 3.125rem;
+  }
+  /* NAVAGATION */
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+  nav .menu ul li a.tittle {
+    font: 400 1rem var(--title-font);
+    -webkit-font-smoothing: antialiased;
+  }
+  nav .menu ul li a.tittle.active {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+  nav .icon-menu {
+    display: none;
+  }
+  /* HOME */
+  #home .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 7.375rem;
+  }
+  #home .image {
+    /* order só funciona aqui pq esses elementos estão em um container grid (pra flex tambem funciona*/
+    max-width: 41.125rem;
+    order: 1;
+  }
+  #home .image::before {
+    max-width: 41.125rem;
+  }
+  #home .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+  /* ABOUT */
+  #about .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+  }
+  /* TESTIMONIALS */
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Services */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  /* Contact */
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+  #contact .text {
+    max-width: 25rem;
+  }
+  /* Footer */
+  footer.section {
+    padding: 3.75rem 0;
+  }
+  footer .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer .logo {
+    font-size: 2.25rem;
+  }
+}
+
+/* Large devices: 992 + */
+
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
+  main {
+    margin-top: var(--header-height);
+  }
+}
+
+/* Medium devices: 767 + */
