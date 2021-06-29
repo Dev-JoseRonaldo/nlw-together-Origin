@@ -12,8 +12,10 @@ for (const element of toggle) {
 const links = document.querySelectorAll('nav ul li a')
 
 for (const link of links) {
-  link.addEventListener('click', function () {
+  link.addEventListener('click', function (evt) {
+    evt.preventDefault()
     nav.classList.remove('show')
+    scrollSmooth(link)
   })
 }
 
@@ -64,7 +66,6 @@ scrollReveal.reveal(
 )
 
 /*Botão voltar ao top */
-
 const backToTopButton = document.querySelector('.back-to-top')
 function backToTop() {
   if (this.window.scrollY > 560) {
@@ -105,6 +106,15 @@ function activateMenuAtCurrentSection() {
     }
   }
 }
+
+/* Smooth Scroll*/
+function scrollSmooth(link) {
+  const sectionId = link.getAttribute('href')
+  document.querySelector(sectionId).scrollIntoView({
+    behavior: 'smooth'
+  })
+}
+
 /* When Scroll */
 window.addEventListener('scroll', function () {
   changeHeaderWhenScroll()
