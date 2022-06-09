@@ -1,17 +1,16 @@
-/*================= RESET =================*/
-
+/*====  RESET ============================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-}
-
 ul {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 img {
@@ -19,12 +18,12 @@ img {
   height: auto;
 }
 
-/*================= VARIABLES =================*/
-
+/*====  VARIABLES ============================ */
 :root {
   --header-height: 4.5rem;
+
   /* colors */
-  --hue: 140;
+  --hue: 159;
   /* HSL color mode */
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
@@ -33,20 +32,19 @@ img {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
-  /*fonts*/
+
+  /* fonts */
   --title-font-size: 1.875rem;
   --subtitle-font-size: 1rem;
+
   --title-font: 'Poppins', sans-serif;
   --body-font: 'DM Sans', sans-serif;
 }
 
-/*================= BASE =================*/
-
-/*
+/*===  BASE ============================ */
 html {
   scroll-behavior: smooth;
 }
-*/
 
 body {
   font: 400 1rem var(--body-font);
@@ -55,7 +53,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.tittle {
+.title {
   font: 700 var(--title-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto;
@@ -79,16 +77,23 @@ body {
 
 .divider-1 {
   height: 1px;
-  background: linear-gradient( 270deg, hsla(var(--hue), 36%, 57%, 1) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%);
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  );
 }
 
 .divider-2 {
   height: 1px;
-  background: linear-gradient( 270deg, hsla(var(--hue), 65%, 88%, 0.34) 0%, hsla(var(--hue), 36%, 57%, 1) 100%);
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
 }
 
-/*================= LAYOUT =================*/
-
+/*====  LAYOUT ============================ */
 .container {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -103,7 +108,7 @@ body {
   padding: calc(5rem + var(--header-height)) 0;
 }
 
-.section .tittle {
+.section .title {
   margin-bottom: 1rem;
 }
 
@@ -123,22 +128,22 @@ body {
   border-bottom: 1px solid #e4e4e4;
   margin-bottom: 2rem;
   display: flex;
-  width: 100%;
+
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   background-color: var(--body-color);
+  width: 100%;
 }
 
-header.scroll {
+#header.scroll {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
 }
 
-/*================= LOGO =================*/
-
+/*====  LOGO ============================ */
 .logo {
-  font: 700 1.3125rem var(--title-font);
+  font: 700 1.31rem var(--title-font);
   color: var(--title-color);
 }
 
@@ -150,14 +155,13 @@ header.scroll {
   color: var(--body-color);
 }
 
-/*================= NAVAGATION =================*/
-
+/*====  NAVIGATION ============================ */
 nav {
-  width: 100%;
   height: var(--header-height);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 nav ul li {
@@ -165,26 +169,30 @@ nav ul li {
 }
 
 nav ul li a {
-  transition: color 0.3s;
+  transition: color 0.2s;
   position: relative;
 }
 
-nav ul li a:hover, nav ul li a.active {
+nav ul li a:hover,
+nav ul li a.active {
   color: var(--base-color);
 }
 
 nav ul li a::after {
-  content: "";
+  content: '';
   width: 0%;
   height: 2px;
   background: var(--base-color);
+
   position: absolute;
   left: 0;
   bottom: -1.5rem;
+
   transition: width 0.2s;
 }
 
-nav ul li a:hover::after, nav ul li a.active::after {
+nav ul li a:hover::after,
+nav ul li a.active::after {
   width: 100%;
 }
 
@@ -199,17 +207,20 @@ nav .menu ul {
   display: none;
 }
 
-/*Mostrar Menu*/
-
+/* Mostrar menu */
 nav.show .menu {
   opacity: 1;
   visibility: visible;
-  background-color: var(--body-color);
+
+  background: var(--body-color);
+
   height: 100vh;
   width: 100vw;
+
   position: fixed;
   top: 0;
   left: 0;
+
   display: grid;
   place-content: center;
 }
@@ -223,7 +234,6 @@ nav.show ul.grid {
 }
 
 /* toggle menu */
-
 .toggle {
   color: var(--base-color);
   font-size: 1.5rem;
@@ -233,9 +243,11 @@ nav.show ul.grid {
 nav .icon-close {
   visibility: hidden;
   opacity: 0;
+
   position: absolute;
-  right: 1.5rem;
   top: -1.5rem;
+  right: 1.5rem;
+
   transition: 0.2s;
 }
 
@@ -245,8 +257,7 @@ nav.show div.icon-close {
   top: 1.5rem;
 }
 
-/*================= HOME =================*/
-
+/*====  HOME ============================ */
 #home {
   overflow: hidden;
 }
@@ -275,7 +286,8 @@ nav.show div.icon-close {
   right: 2.93rem;
 }
 
-#home .image img, #home .image::before {
+#home .image img,
+#home .image::before {
   border-radius: 0.25rem;
 }
 
@@ -285,7 +297,7 @@ nav.show div.icon-close {
   text-align: center;
 }
 
-#home .text h2 {
+#home .text h1 {
   margin-bottom: 1rem;
 }
 
@@ -293,8 +305,7 @@ nav.show div.icon-close {
   margin-bottom: 2rem;
 }
 
-/*================= ABOUT =================*/
-
+/*====  ABOUT ============================ */
 #about {
   background: white;
 }
@@ -322,7 +333,8 @@ nav.show div.icon-close {
   position: relative;
 }
 
-#about .image img, #about .image::before {
+#about .image img,
+#about .image::before {
   border-radius: 0.25rem;
 }
 
@@ -331,9 +343,8 @@ nav.show div.icon-close {
   margin-right: 1.5rem;
 }
 
-/*================= SERVICES =================*/
-
-cards.grid {
+/*====  SERVICES ============================ */
+.cards.grid {
   gap: 1.5rem;
 }
 
@@ -352,13 +363,12 @@ cards.grid {
   color: var(--base-color);
 }
 
-.card .tittle {
+.card .title {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
 }
 
-/*================= TESTIMONIALS =================*/
-
+/*====  TESTIMONIALS ============================ */
 #testimonials {
   background: white;
 }
@@ -366,6 +376,8 @@ cards.grid {
 #testimonials .container {
   margin-left: 0;
   margin-right: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 #testimonials header {
@@ -382,7 +394,7 @@ cards.grid {
 
 #testimonials blockquote p {
   position: relative;
-  text-indent: 1.675rem;
+  text-indent: 1.875rem;
   margin-bottom: 1.5rem;
   color: var(--title-color);
 }
@@ -390,8 +402,8 @@ cards.grid {
 #testimonials blockquote p span {
   font: 700 2.5rem serif;
   position: absolute;
-  top: -1rem;
-  left: -1.675rem;
+  top: -0.375rem;
+  left: -1.875rem;
   color: var(--base-color);
 }
 
@@ -409,19 +421,22 @@ cards.grid {
   margin-right: 0.5rem;
 }
 
-/* =========== SWIPER ========== */
-
-.swiper-slider {
+/* swiper */
+.swiper-slide {
   height: auto;
-  padding: 0rem 1rem;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 .swiper-pagination-bullet-active {
   background: var(--base-color);
 }
 
-/* =========== CONTACT ========== */
-
+/*====  CONTACT ============================ */
 #contact .grid {
   gap: 4rem;
 }
@@ -430,7 +445,8 @@ cards.grid {
   margin-bottom: 2rem;
 }
 
-#contact .button i, #contact ul li i {
+#contact .button i,
+#contact ul li i {
   font-size: 1.5rem;
   margin-right: 0.625rem;
 }
@@ -448,8 +464,7 @@ cards.grid {
   color: var(--base-color);
 }
 
-/* =========== FOOTER ========== */
-
+/*====  FOOTER ============================ */
 footer {
   background: var(--base-color);
 }
@@ -459,7 +474,6 @@ footer.section {
 }
 
 footer .logo {
-  /* como o .logo é um elemento <a> , seu display por padrão é do tipo inline ,e dessa forma não é possivel colocar o margem-botton , trocamos entao para display: inline-block. */
   display: inline-block;
   margin-bottom: 1.5rem;
 }
@@ -474,165 +488,175 @@ footer i {
   color: var(--text-color-light);
 }
 
+footer .social {
+  grid-auto-flow: column;
+  width: fit-content;
+}
+
 footer .social a {
-  /* como temos um elemento <a> , seu display por padrão é do tipo inline ,e dessa forma não é possivel colocar as transitions, trocamos entao para display: inline-block. */
+  transition: 0.3s;
   display: inline-block;
-  margin-right: 2rem;
-  transition: 0.2s;
 }
 
 footer .social a:hover {
-  transform: translateY(-15px);
+  transform: translateY(-8px);
 }
 
-/* =========== BACK TO TOP ========== */
-
+/* Back to top */
 .back-to-top {
   background: var(--base-color);
   color: var(--text-color-light);
-  opacity: 0.9;
+
   position: fixed;
   right: 1rem;
   bottom: 1rem;
+
   padding: 0.5rem;
   clip-path: circle();
+
   font-size: 1.5rem;
   line-height: 0;
+
   visibility: hidden;
   opacity: 0;
-  transition: 0.5s;
-  transform: translateY(100%);
-}
 
-.back-to-top-alt {
-  background: var(--text-color-light);
-  color: var(--base-color);
+  transition: 0.3s;
+  transform: translateY(100%);
 }
 
 .back-to-top.show {
   visibility: visible;
-  opacity: 0.9;
+  opacity: 1;
   transform: translateY(0);
 }
 
-/* =========== MEDIAS QUERIES ========== */
-
-/* Extra large devices: 1200 + */
-
-/* BASE */
-
+/*========= MEDIA QUERIES =========*/
+/* extra large devices: 1200 > */
 @media (min-width: 1200px) {
-  main {
-    margin-top: var(--header-height);
-  }
+  /* reusable classes */
   .container {
-    max-width: 1172px;
+    max-width: 1120px;
     margin-left: auto;
     margin-right: auto;
   }
+
   .section {
     padding: 10rem 0;
   }
-  .section header, #testimonials header {
+
+  .section header,
+  #testimonials header {
     max-width: 32rem;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
+
   .button {
     height: 3.125rem;
   }
-  /* NAVAGATION */
+
+  /* navigation */
   nav .menu {
     opacity: 1;
     visibility: visible;
     top: 0;
   }
+
   nav .menu ul {
     display: flex;
     gap: 2rem;
   }
-  nav .menu ul li a.tittle {
-    font: 400 1rem var(--title-font);
+
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
     -webkit-font-smoothing: antialiased;
   }
-  nav .menu ul li a.tittle.active {
+
+  nav .menu ul li a.title.active {
     font-weight: bold;
     -webkit-font-smoothing: auto;
   }
+
   nav .icon-menu {
     display: none;
   }
-  /* HOME */
+
+  /* layout */
+  main {
+    margin-top: var(--header-height);
+  }
+
+  /* home */
   #home .container {
     grid-auto-flow: column;
     justify-content: space-between;
     margin: 0 auto;
-    gap: 7.375rem;
   }
+
   #home .image {
-    /* order só funciona aqui pq esses elementos estão em um container grid (pra flex tambem funciona*/
-    max-width: 41.125rem;
     order: 1;
   }
-  #home .image::before {
-    max-width: 41.125rem;
-  }
+
   #home .text {
     order: 0;
     max-width: 24rem;
     text-align: left;
   }
-  /* ABOUT */
+
+  /* about */
   #about .container {
     margin: 0 auto;
     grid-auto-flow: column;
   }
-  /* TESTIMONIALS */
-  #testimonials .container {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* Services */
+
+  /* services */
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
   .card {
     padding-left: 3rem;
     padding-right: 3rem;
   }
-  /* Contact */
+
+  /* testimonials */
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* contact */
   #contact .container {
     grid-auto-flow: column;
     align-items: center;
   }
+
   #contact .text {
     max-width: 25rem;
   }
-  /* Footer */
+
+  /* footer */
   footer.section {
     padding: 3.75rem 0;
   }
+
   footer .container {
     grid-auto-flow: column;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
+
   footer .logo {
     font-size: 2.25rem;
   }
 }
-
-/* Large devices: 992 + */
-
+/* large devices: 1023 > */
+/* large devices: 992 > */
 @media (min-width: 992px) {
   :root {
     --title-font-size: 2.25rem;
     --subtitle-font-size: 1.125rem;
   }
-  main {
-    margin-top: var(--header-height);
-  }
 }
-
-/* Medium devices: 767 + */
+/* medium devices: 767 > */
